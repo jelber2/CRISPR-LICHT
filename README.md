@@ -11,10 +11,9 @@ last modified 8 July 2022
 cd /nfs/scistore16/itgrp/bioinf/projects/DA0010/original-paper-data-analysis-jean-01Apr22
 module load samtools/1.14
 module load bcftools/1.14
-```
 
 mkdir -p snakemake2
-
+```
 
 ### Read 1 and index 1 reads
 
