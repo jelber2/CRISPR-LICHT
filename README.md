@@ -1720,7 +1720,7 @@ cat CRISPR-LICHT.dag3 | \
 dot -Tsvg
 ```
 
-![workflow1](./CRISPR-LICHT.svg)
+![workflow1](./CRISPR-LICHT.svg?)
 
 
 ## run the workflow
@@ -2276,9 +2276,9 @@ plot(x=test$log2FC,y=-1*log10(test$pvals), col=test$colors, main="negative contr
 dev.off()
 ```
 
-![1](./1.svg)
-![2](./2.svg)
-![3](./3.svg)
-![4](./4.svg)
-![5](./5.svg)
-![6](./6.svg)
+![1](./1.svg?)
+![2](./2.svg?)
+![3](./3.svg?)
+![4](./4.svg?)
+![5](./5.svg?)
+![6](./6.svg?)
