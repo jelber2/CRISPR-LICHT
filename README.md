@@ -1678,24 +1678,21 @@ digraph snakemake_dag {
     graph[bgcolor=white, margin=0];
     node[shape=box, style=rounded, fontname=sans,                 fontsize=10, penwidth=2];
     edge[penwidth=2, color=grey];
-	0[label = "ready to estimate log2FC and p values\n from count table", color = "0.36 0.6 0.85", style="rounded,dashed"];
-	1[label = "convert matrix to csv file for STARsolo raw data", color = "0.56 0.6 0.85", style="rounded,dashed"];
+	0[label = "ready to estimate log2FC and\np values from count table\nusing a negative\nbinomial generlized linear\nmodel with a common dispersion\nestimate and ability to add\n covariates such as batch\njust like DESeq2", color = "0.36 0.6 0.85", style="rounded,dashed"];
 	2[label = "use STAR on the filtered reads\n to make count table", color = "0.10 0.6 0.85", style="rounded,dashed"];
 	3[label = "convert filtered BAM to filtered reads", color = "0.62 0.6 0.85", style="rounded,dashed"];
 	4[label = "filter BAM output from STAR to \nget rid of mismatches", color = "0.46 0.6 0.85", style="rounded,dashed"];
-	5[label = "use STAR to estimate mismatches between\n reads and gRNAs\nno introns allowed", color = "0.00 0.6 0.85", style="rounded,dashed"];
+	5[label = "use STAR to estimate mismatches\nbetween reads and gRNAs\nno introns allowed", color = "0.00 0.6 0.85", style="rounded,dashed"];
 	6[label = "convert to format for STAR", color = "0.31 0.6 0.85", style="rounded,dashed"];
 	7[label = "combine 16 outputs from \numi_tools extract", color = "0.21 0.6 0.85", style="rounded,dashed"];
-	8[label = "use umi_tools extract on each of the\n16 input files\n and the whitelist\nto correct indexes", color = "0.41 0.6 0.85", style="rounded,dashed"];
-	9[label = "split the original files into\n16 pieces for 16x faster processing", color = "0.26 0.6 0.85", style="rounded,dashed"];
-	10[label = "use umi_tools whitelist\non original reads\nwith up to 3 errors\nin combined 20-bp sample*lineage indexes", color = "0.51 0.6 0.85", style="rounded,dashed"];
-	11[label = "make a list of indexes for STARsolo", color = "0.05 0.6 0.85", style="rounded,dashed"];
-	12[label = "convert matrix to csv file for STARsolo filtered data", color = "0.15 0.6 0.85", style="rounded,dashed"];
-	13[label = "get original reads\nIndex1 is 10-bp lineage barcode\nIndex2 is 10-bp sample barcode\nR1 (51-bp) is 12-bp UMI some random seq, constant seq\n, immediately followed by 19-20-bp gRNA", color = "0.15 0.6 0.85", style="rounded,dashed"];
-	14[label = "make a sequence reference for STAR\n using the gRNAs", color = "0.15 0.6 0.85", style="rounded,dashed"];
-	1 -> 0
+	8[label = "use umi_tools extract on each \nof the 16 input files\n and the whitelist\nto correct barcodes", color = "0.41 0.6 0.85", style="rounded,dashed"];
+	9[label = "split the original files\ninto 16 pieces for\n16x faster processing", color = "0.26 0.6 0.85", style="rounded,dashed"];
+	10[label = "use umi_tools whitelist\non original reads\nwith up to 3 errors\nin combined 20-bp\nsample*lineage barcodes\nto make a whitelist", color = "0.51 0.6 0.85", style="rounded,dashed"];
+	11[label = "make barcode list for STAR", color = "0.05 0.6 0.85", style="rounded,dashed"];
+	12[label = "convert count table from matrix\nformat to csv format", color = "0.15 0.6 0.85", style="rounded,dashed"];
+	13[label = "get original reads\nIndex1: 10-bp lineage barcode\nIndex2: 10-bp sample barcode\nR1 (51-bp total):\n12-bp UMI,\nsome random seq,\na constant seq,\nimmediately followed by\nthe 19-20-bp gRNA", color = "0.15 0.6 0.85", style="rounded,dashed"];
+	14[label = "make a sequence reference for \nSTAR using the gRNAs", color = "0.15 0.6 0.85", style="rounded,dashed"];
 	12 -> 0
-	2 -> 1
 	3 -> 2
 	11 -> 2
 	4 -> 3
