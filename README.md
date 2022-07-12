@@ -1720,7 +1720,7 @@ cat CRISPR-LICHT.dag3 | \
 dot -Tsvg
 ```
 
-![workflow](./CRISPR-LICHT.svg)
+![workflow1](./CRISPR-LICHT.svg)
 
 
 ## run the workflow
