@@ -2276,9 +2276,20 @@ plot(x=test$log2FC,y=-1*log10(test$pvals), col=test$colors, main="negative contr
 dev.off()
 ```
 
+## plot 1 non-targeting controls - all data
 ![1](./1.svg?)
+
+## plot 2 growth controls - all data
 ![2](./2.svg?)
+
+## plot 3 death controls - all data
 ![3](./3.svg?)
+
+## plot 4 non-targeting controls - removed highest point data
 ![4](./4.svg?)
+	
+## plot 5 growth controls - removed highest point data
 ![5](./5.svg?)
+
+## plot 6 death controls - removed highest point data
 ![6](./6.svg?)
