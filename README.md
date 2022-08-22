@@ -1656,7 +1656,7 @@ rule mat2csv2:
         pigz -p {THREADS} -fk {input.matrix}
         pigz -p {THREADS} -fk {input.features}
         pigz -p {THREADS} -fk {input.barcodes}
-        cellranger mat2csv {params}/Solo.out/Gene/raw/ {output.csv}
+        cellranger mat2csv {params}/Solo.out/Gene/filtered/ {output.csv}
         '''
 ```
 </details>
@@ -1725,7 +1725,7 @@ dot -Tsvg
 
 ## run the workflow
 ```sh
-snakemake -j 30 --snakefile Snakefile-fasta \
+snakemake -j 30 --snakefile Snakefile-fasta3 \
 --printshellcmds --latency-wait 60 --local-cores 4 --cores all \
 --cluster "sbatch --export=NONE --no-requeue --job-name {rule} --mem=64g \
 --time=2:00:00 --cpus-per-task=12 --constraint=avx2 --partition=gpu" all > Snakefile.log 2>&1 &
